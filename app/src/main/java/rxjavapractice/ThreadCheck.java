@@ -13,7 +13,7 @@ public class ThreadCheck {
         });
 
         observable
-                .observeOn(Schedulers.io())
+                .observeOn(Schedulers.io()) // これをコメントアウトすると、下記処理はmainスレッドで行われる。
                 .subscribe(
                         item -> {
                             System.out.println("受け取ったデータ => " + item + ": スレッド => " + Thread.currentThread().getName());
